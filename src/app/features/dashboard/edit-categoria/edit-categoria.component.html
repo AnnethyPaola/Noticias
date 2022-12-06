@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="title-page">
+        <h2>Agregar categoria</h2>
+     </div>
+    <div class="form">
+        <form action="" class="p-3" [formGroup]="form" (ngSubmit)="submit()">
+
+            <div class="row">
+                <div class="col ">
+                    <div class="form-group">
+                        <label class="p-3">Nombre</label>
+                        <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Titulo "
+                            formControlName="nombre">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col ">
+                    <label for="" class="p-3">Descripcion</label>
+                    <textarea name="" id="" cols="10" rows="6" class="form-control"
+                        formControlName="description"></textarea>
+                </div>
+            </div>
+
+
+            <br>
+            <button type="submit" class="btn btn-danger btn-lg btn-block">Guadar</button>
+
+        </form>
+
+    </div>
+</div>

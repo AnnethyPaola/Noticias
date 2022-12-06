@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "page-noticias": {
+      "hosting": {
+        "Noticias": [
+          "page-noticias-9815d"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "page-noticias"
+  }
+}

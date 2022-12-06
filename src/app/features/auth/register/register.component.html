@@ -1,0 +1,46 @@
+<section>
+    <div class="row m-0 h-100">
+        <div class="col p-0 text-center d-flex justify-content-center align-items-center display-none p">
+            <i class="fa-solid fa-newspaper"></i>
+            Noticias
+            <span class="azul">R</span>
+            <span class="rojo">D</span>
+        </div>
+        <div class="col p-0 bg-custom d-flex justify-content-center align-items-center flex-column w-100">
+            <form class="w-75" action="#">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Correo</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Correo"
+                        required #userName>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput2" class="form-label">Password</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="password"
+                        required  #userPassword >
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Nombre de usuario</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Correo"
+                        required #userUsername>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput2" class="form-label">Nombre Completo</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="password"
+                        required  #userName>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                       
+                            <label class="puntero" for="flexCheckDefault" routerLink="/login" style="font-weight:800">
+                                Iniciar Sesion 
+                            </label>
+                      
+                    </div>
+                </div>
+                <button type="button" class="btn btn-custom btn-lg btn-block mt-3" (click)="authService.SignUp(userName.value, userPassword.value)">Ingresar</button>
+                <button type="button" class="btn btn-custom btn-lg btn-block mt-3" (click)="authService.GoogleAuth()">Ingresar con google</button>
+
+            </form>
+        </div>
+    </div>
+</section>

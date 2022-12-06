@@ -1,0 +1,281 @@
+<div class="container">
+    <div class="">
+        <div class="title-page">
+            <h2>Lista de noticias</h2>
+         </div>
+    </div>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
+                type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Noticias</button>
+        </li>
+        <li class="nav-item" role="deportes">
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
+                type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Deportes</button>
+        </li>
+        <li class="nav-item" role="entretenimiento">
+            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#entretenimiento-tab-pane"
+                type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Entretenimiento</button>
+        </li>
+
+        <li class="nav-item" role="Tecnologia">
+            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#tecnologia-tab-pane"
+                type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Tecnologia</button>
+        </li>
+
+        <li class="nav-item" role="Economia">
+            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#economia-tab-pane"
+                type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Economia</button>
+        </li>
+
+        <li class="nav-item" role="Redes">
+            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#social-tab-pane"
+                type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Redes sociales</button>
+        </li>
+
+        <li class="nav-item" role="Politica">
+            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#politica-tab-pane"
+                type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Politica</button>
+        </li>
+
+        
+       
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+            tabindex="0">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Titulo</th>
+                        <th scope="col">Fecha</th>
+                        <th>Categoria</th>
+                        <th scope="col">Autor</th>
+                        <th scope="col">Acciones</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let item of news; let indice = index">
+                    <tr >
+                        <th scope="row">{{indice + 1}}</th>
+                        <td>Noticia</td>
+                        <td>{{item.fecha}}</td>
+                        <td>{{item.categoria}}</td>
+                        <td>{{item.autor}}</td>
+                        <td>
+                            <i class="fa-solid fa-pen-to-square" style="color:green"
+                            routerLink="/dashboard/editNews/edit-news/{{item.id}}"></i>
+                            <i class="fa-solid fa-trash" style="color:red" (click)="deleteNews(item.id)"></i>
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-eye" style="color:blue"
+                            routerLink="/dashboard/detailsNews/details-news/{{item.id}}"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Titulo</th>
+                        <th scope="col">Fecha</th>
+                        <th>Categoria</th>
+                        <th scope="col">Autor</th>
+                        <th scope="col">Acciones</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let item of news">
+                    <tr *ngIf="item.categoria == 'Deportes'">
+                        <th scope="row">1</th>
+                        <td>Noticia</td>
+                        <td>{{item.fecha}}</td>
+                        <td>{{item.categoria}}</td>
+                        <td>{{item.autor}}</td>
+                        <td>
+                            <i class="fa-solid fa-pen-to-square" style="color:green"
+                            routerLink="/dashboard/editNews/edit-news/{{item.id}}"></i>
+                            <i class="fa-solid fa-trash" style="color:red" (click)="deleteNews(item.id)"></i>
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-eye" style="color:blue"
+                            routerLink="/dashboard/detailsNews/details-news/{{item.id}}"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="entretenimiento-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Titulo</th>
+                        <th scope="col">Fecha</th>
+                        <th>Categoria</th>
+                        <th scope="col">Autor</th>
+                        <th scope="col">Acciones</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let item of news">
+                    <tr *ngIf="item.categoria == 'Entretenimiento'">
+                        <th scope="row">1</th>
+                        <td>Noticia</td>
+                        <td>{{item.fecha}}</td>
+                        <td>{{item.categoria}}</td>
+                        <td>{{item.autor}}</td>
+                        <td>
+                            <i class="fa-solid fa-pen-to-square" style="color:green"
+                            routerLink="/dashboard/editNews/edit-news/{{item.id}}"></i>
+                            <i class="fa-solid fa-trash" style="color:red" (click)="deleteNews(item.id)"></i>
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-eye" style="color:blue"
+                            routerLink="/dashboard/detailsNews/details-news/{{item.id}}"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="tecnologia-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Titulo</th>
+                        <th scope="col">Fecha</th>
+                        <th>Categoria</th>
+                        <th scope="col">Autor</th>
+                        <th scope="col">Acciones</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let item of news">
+                    <tr *ngIf="item.categoria == 'Tecnología'">
+                        <th scope="row">1</th>
+                        <td>Noticia</td>
+                        <td>{{item.fecha}}</td>
+                        <td>{{item.categoria}}</td>
+                        <td>{{item.autor}}</td>
+                        <td>
+                            <i class="fa-solid fa-pen-to-square" style="color:green"
+                            routerLink="/dashboard/editNews/edit-news/{{item.id}}"></i>
+                            <i class="fa-solid fa-trash" style="color:red" (click)="deleteNews(item.id)"></i>
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-eye" style="color:blue"
+                            routerLink="/dashboard/detailsNews/details-news/{{item.id}}"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="economia-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Titulo</th>
+                        <th scope="col">Fecha</th>
+                        <th>Categoria</th>
+                        <th scope="col">Autor</th>
+                        <th scope="col">Acciones</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let item of news">
+                    <tr *ngIf="item.categoria == 'Economía'">
+                        <th scope="row">1</th>
+                        <td>Noticia</td>
+                        <td>{{item.fecha}}</td>
+                        <td>{{item.categoria}}</td>
+                        <td>{{item.autor}}</td>
+                        <td>
+                            <i class="fa-solid fa-pen-to-square" style="color:green"
+                            routerLink="/dashboard/editNews/edit-news/{{item.id}}"></i>
+                            <i class="fa-solid fa-trash" style="color:red" (click)="deleteNews(item.id)"></i>
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-eye" style="color:blue"
+                            routerLink="/dashboard/detailsNews/details-news/{{item.id}}"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="social-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Titulo</th>
+                        <th scope="col">Fecha</th>
+                        <th>Categoria</th>
+                        <th scope="col">Autor</th>
+                        <th scope="col">Acciones</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let item of news">
+                    <tr *ngIf="item.categoria == 'Redes sociales'">
+                        <th scope="row">1</th>
+                        <td>Noticia</td>
+                        <td>{{item.fecha}}</td>
+                        <td>{{item.categoria}}</td>
+                        <td>{{item.autor}}</td>
+                        <td>
+                            <i class="fa-solid fa-pen-to-square" style="color:green"
+                            routerLink="/dashboard/editNews/edit-news/{{item.id}}"></i>
+                            <i class="fa-solid fa-trash" style="color:red" (click)="deleteNews(item.id)"></i>
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-eye" style="color:blue"
+                            routerLink="/dashboard/detailsNews/details-news/{{item.id}}"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="politica-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Titulo</th>
+                        <th scope="col">Fecha</th>
+                        <th>Categoria</th>
+                        <th scope="col">Autor</th>
+                        <th scope="col">Acciones</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let item of news; let indice = index">
+                    <tr *ngIf="item.categoria == 'Politica'">
+                        <th scope="row">{{indice + 1}}</th>
+                        <td>Noticia</td>
+                        <td>{{item.fecha}}</td>
+                        <td>{{item.categoria}}</td>
+                        <td>{{item.autor}}</td>
+                        <td>
+                            <i class="fa-solid fa-pen-to-square" style="color:green"
+                            routerLink="/dashboard/editNews/edit-news/{{item.id}}"></i>
+                            <i class="fa-solid fa-trash" style="color:red" (click)="deleteNews(item.id)"></i>
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-eye" style="color:blue"
+                            routerLink="/dashboard/detailsNews/details-news/{{item.id}}"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

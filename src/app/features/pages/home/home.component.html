@@ -1,0 +1,153 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <h2>Carrosel de noticias</h2>
+      <!-- Carousel wrapper -->
+      <div id="carouselVideoExample" class="carousel slide carousel-fade" data-mdb-ride="carousel">
+          <!-- Indicators -->
+          <div class="carousel-indicators">
+              <button type="button" data-mdb-target="#carouselVideoExample" data-mdb-slide-to="0" class="active"
+                  aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-mdb-target="#carouselVideoExample" data-mdb-slide-to="1"
+                  aria-label="Slide 2"></button>
+              <button type="button" data-mdb-target="#carouselVideoExample" data-mdb-slide-to="2"
+                  aria-label="Slide 3"></button>
+          </div>
+
+          <!-- Inner -->
+          <div class="carousel-inner">
+              <!-- Single item -->
+              <div class="carousel-item active">
+                  <video class="img-fluid" autoplay loop muted>
+                      <source src="https://mdbcdn.b-cdn.net/img/video/Tropical.mp4" type="video/mp4" />
+                  </video>
+                  <div class="carousel-caption d-none d-md-block">
+                      <h5>First slide label</h5>
+                      <p>
+                          Nulla vitae elit libero, a pharetra augue mollis interdum.
+                      </p>
+                  </div>
+              </div>
+
+              <!-- Single item -->
+              <div class="carousel-item">
+                  <video class="img-fluid" autoplay loop muted>
+                      <source src="https://mdbcdn.b-cdn.net/img/video/forest.mp4" type="video/mp4" />
+                  </video>
+                  <div class="carousel-caption d-none d-md-block">
+                      <h5>Second slide label</h5>
+                      <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      </p>
+                  </div>
+              </div>
+
+              <!-- Single item -->
+              <div class="carousel-item">
+                  <video class="img-fluid" autoplay loop muted>
+                      <source src="https://mdbcdn.b-cdn.net/img/video/Agua-natural.mp4" type="video/mp4" />
+                  </video>
+                  <div class="carousel-caption d-none d-md-block">
+                      <h5>Third slide label</h5>
+                      <p>
+                          Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <!-- Inner -->
+
+          <!-- Controls -->
+          <button class="carousel-control-prev" type="button" data-mdb-target="#carouselVideoExample"
+              data-mdb-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-mdb-target="#carouselVideoExample"
+              data-mdb-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+          </button>
+      </div>
+      <!-- Carousel wrapper -->
+    </div>
+    <div class="col-4">
+      <h4>Noticias recientes</h4>
+      <div class="news-recientes">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.webp" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Noticias</h2>
+
+  <h2>Deportes</h2>
+    <div class="flexbacan">
+      <div class="card h-100" style="width:300px;heigth:250px;margin-bottom: 30px;" *ngFor="let n of Deportes">
+          <div class="view overlay">
+            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.webp"
+              alt="Card image cap">
+            <a href="#!">
+              <div class="mask rgba-white-slight">
+                
+              </div>
+            </a>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">{{n.titulo.substr(0,15)}}</h4>
+            <h5>{{n.autor.substr(0,15)}}</h5>
+            <p class="card-text">{{n.body.substr(0,15)}}</p>
+            <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+          </div>
+      </div>
+    </div>
+      
+  <h2>Entretenimiento</h2>
+  <div class="flexbacan">
+    <div class="card h-100" style="width:300px;heigth:250px;margin-bottom: 30px;" *ngFor="let n of Entretenimiento">
+        <div class="view overlay">
+          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.webp"
+            alt="Card image cap">
+          <a href="#!">
+            <div class="mask rgba-white-slight">
+              
+            </div>
+          </a>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">{{n.titulo.substr(0,15)}}</h4>
+          <h5>{{n.autor.substr(0,15)}}</h5>
+          <p class="card-text">{{n.body.substr(0,15)}}</p>
+          <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+        </div>
+    </div>
+  </div>
+
+  <h2>Salud</h2>
+  <div class="flexbacan">
+    <div class="card h-100" style="width:300px;heigth:250px;margin-bottom: 30px;" *ngFor="let n of Salud">
+        <div class="view overlay">
+          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.webp"
+            alt="Card image cap">
+          <a href="#!">
+            <div class="mask rgba-white-slight">
+              
+            </div>
+          </a>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">{{n.titulo.substr(0,15)}}</h4>
+          <h5>{{n.autor.substr(0,15)}}</h5>
+          <p class="card-text">{{n.body.substr(0,15)}}</p>
+          <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+        </div>
+    </div>
+  </div>
+</div>

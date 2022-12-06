@@ -1,0 +1,67 @@
+section{
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    font-family: "Nunito Sans";
+}
+
+.puntero{
+    cursor: pointer;
+}
+.form-control {
+    line-height: 2;
+}
+
+.bg-custom {
+    background-color: blue;
+}
+
+.btn-custom {
+    background-color: red;
+    color: #fff;
+    width:100%;
+}
+
+.btn-custom:hover {
+    background-color: rgb(158, 17, 17);
+    color: #fff;
+}
+
+label {
+    color: #fff;
+    font-size: 20px;
+}
+
+a,
+a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+}
+
+@media(max-width: 932px) {
+    .display-none {
+        display: none !important;
+    }
+}
+
+i {
+    margin: 10px;
+    font-size: 250px;
+}
+
+.p{
+    font-size: 70px;
+}
+
+.azul {
+    color: blue;
+}
+
+.rojo {
+    color: red;
+}

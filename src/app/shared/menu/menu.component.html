@@ -1,0 +1,57 @@
+<header>
+    <div class="header-1">
+      <h1>
+        <i class="fa-solid fa-newspaper"></i>
+        Noticias
+        <span class="azul">R</span>
+        <span class="rojo">D</span>
+      </h1>
+    </div>
+  </header>
+  
+  <div class="menu">
+    <div class="container">
+      <ul>
+        <li routerLinkActive="active">
+          <a routerLink="/pages/home">
+            <i class="fa fa-house"></i>Home</a>
+        </li>
+        <li >
+          <a routerLink="/pages/news/news-list">
+            <i class="fa-solid fa-newspaper"></i>News</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/pages/deportes/deportes-news">
+            <i class="fa-solid fa-medal"></i>Deportes</a>
+        </li>
+        <li>
+          <a routerLink="/pages/entretenimiento/entretenimiento-news">
+            <i class="fa-solid fa-tv"></i>Entretenimiento</a>
+        </li>
+        <li>
+          <a routerLink="/pages/tecnologia/tecnologia-news">
+            <i class="fa-solid fa-microchip"></i>Tecnologia</a>
+        </li>
+        <li>
+          <a routerLink="/pages/economia/economia-news">
+            <i class="fa-solid fa-money-bill-trend-up"></i>Economia</a>
+        </li>
+        <li>
+          <a routerLink="/pages/social/social-news">
+            <i class="fa-solid fa-hashtag"></i>Redes Sociales</a>
+        </li>
+        <li>
+          <a routerLink="/pages/politica/politica-news">
+            <i class="fa-solid fa-landmark-dome"></i>Politica</a>
+        </li>
+        <li>
+          <a routerLink="/pages/salud/salud-news">
+            <i class="fa-solid fa-staff-snake"></i>Salud</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <main>
+    <router-outlet></router-outlet>
+  </main>

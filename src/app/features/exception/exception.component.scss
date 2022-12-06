@@ -1,0 +1,39 @@
+.text {
+    text-align: center;
+    padding: 40px;
+
+    span {
+        font-size: 300px;
+        margin: 10px;
+    }
+}
+
+.azul {
+    color: blue;
+}
+
+.rojo {
+    color: red;
+}
+
+.text-t{
+    text-align: center;
+    margin: 120px;
+    padding: 20px;
+
+    p{
+        margin: 20px;
+        text-align: 30px;
+        font-weight: 900;
+    }
+
+    button{
+        background-color:red;
+        padding: 15px;
+        color: white;
+        
+        i{
+            margin:7px;
+        }
+    }
+}
