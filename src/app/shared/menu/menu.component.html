@@ -1,57 +1,91 @@
 <header>
-    <div class="header-1">
-      <h1>
-        <i class="fa-solid fa-newspaper"></i>
-        Noticias
-        <span class="azul">R</span>
-        <span class="rojo">D</span>
-      </h1>
-    </div>
-  </header>
-  
-  <div class="menu">
-    <div class="container">
-      <ul>
-        <li routerLinkActive="active">
-          <a routerLink="/pages/home">
-            <i class="fa fa-house"></i>Home</a>
-        </li>
-        <li >
-          <a routerLink="/pages/news/news-list">
-            <i class="fa-solid fa-newspaper"></i>News</a>
-        </li>
-        <li routerLinkActive="active">
-          <a routerLink="/pages/deportes/deportes-news">
-            <i class="fa-solid fa-medal"></i>Deportes</a>
-        </li>
-        <li>
-          <a routerLink="/pages/entretenimiento/entretenimiento-news">
-            <i class="fa-solid fa-tv"></i>Entretenimiento</a>
-        </li>
-        <li>
-          <a routerLink="/pages/tecnologia/tecnologia-news">
-            <i class="fa-solid fa-microchip"></i>Tecnologia</a>
-        </li>
-        <li>
-          <a routerLink="/pages/economia/economia-news">
-            <i class="fa-solid fa-money-bill-trend-up"></i>Economia</a>
-        </li>
-        <li>
-          <a routerLink="/pages/social/social-news">
-            <i class="fa-solid fa-hashtag"></i>Redes Sociales</a>
-        </li>
-        <li>
-          <a routerLink="/pages/politica/politica-news">
-            <i class="fa-solid fa-landmark-dome"></i>Politica</a>
-        </li>
-        <li>
-          <a routerLink="/pages/salud/salud-news">
-            <i class="fa-solid fa-staff-snake"></i>Salud</a>
-        </li>
-      </ul>
-    </div>
+  <div class="header-1">
+    <h1>
+      <i class="fa-solid fa-newspaper"></i>
+      Noticias
+      <span class="azul">R</span>
+      <span class="rojo">D</span>
+      <span class="position-absolute top-15 end-0 m-2" id="button" *ngIf="login" routerLink="/login">Iniciar sesión <i
+          class="fa-solid fa-right-to-bracket"></i> </span>
+      <button class="position-absolute top-0 end-0 m-4">
+        <i class="fa-solid fa-user" *ngIf="rol == 'Estandar'" (click)="openVerticallyCentered(content)">
+          {{user?.userName}}
+        </i>
+      </button>
+    </h1>
+
   </div>
-  
-  <main>
-    <router-outlet></router-outlet>
-  </main>
+
+</header>
+<div class="modal">
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Información usuario: <span style="color:red;font-weight:900">{{user?.userName}}</span>
+      </h4>
+      <button type="button" class="btn-close" id="btn-azul" aria-label="Close"
+        (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <p>Bienvenido al sistema <span style="font-weight:900;">{{user?.nombre}}</span> </p>
+      <p style="font-weight:900;">Correo: <span style="color:gray">{{user?.correo}}</span> </p>
+      <div class="row">
+        <div class="col">
+          <button id="Dashboard" routerLink="/dashboard/listNews/list-news" (click)="modal.close('Close click')"> <i
+              class="fa-solid fa-table-columns"></i>
+            Dashboard </button>
+        </div>
+        <div class="col">
+          <button class="btnn" (click)="singtOut()">
+            <i class="fa-solid fa-door-open"></i>Cerrar sesion </button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>
+
+<div class="menu">
+  <div class="container">
+    <ul>
+      <li routerLinkActive="active">
+        <a routerLink="/pages/home">
+          <i class="fa fa-house"></i>Home</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/pages/news/news-list">
+          <i class="fa-solid fa-newspaper"></i>News</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/pages/deportes/deportes-news">
+          <i class="fa-solid fa-medal"></i>Deportes</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/pages/entretenimiento/entretenimiento-news">
+          <i class="fa-solid fa-tv"></i>Entretenimiento</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/pages/tecnologia/tecnologia-news">
+          <i class="fa-solid fa-microchip"></i>Tecnologia</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/pages/economia/economia-news">
+          <i class="fa-solid fa-money-bill-trend-up"></i>Economia</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/pages/social/social-news">
+          <i class="fa-solid fa-hashtag"></i>Redes Sociales</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/pages/politica/politica-news">
+          <i class="fa-solid fa-landmark-dome"></i>Política</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/pages/salud/salud-news">
+          <i class="fa-solid fa-staff-snake"></i>Salud</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<main>
+  <router-outlet></router-outlet>
+</main>

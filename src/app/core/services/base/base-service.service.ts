@@ -2,7 +2,6 @@ import { Inject, Injectable } from '@angular/core';
 import { from, Observable } from 'rxjs';
 import { IFirestoreService } from '../../models/firesabe.model';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +20,7 @@ export class BaseService<T> implements IFirestoreService<T> {
     this.collection = collectionName;
   }
 
-  create(item: T): Observable<any> {
+  create(item: any): Observable<any> {
     const itemToAdd = JSON.parse(JSON.stringify(item));
     itemToAdd.id = this.db.createId();
     const ref = this.db.doc<T>(`${this.collection}/${itemToAdd.id}`);
@@ -37,8 +36,8 @@ export class BaseService<T> implements IFirestoreService<T> {
     return this.db.collection(`${this.collection}`);
   }
 
-  getById(id: any) {
-    return this.db.collection(`${this.collection}`).doc(id).valueChanges();
+  getById<T>(id: any)  {
+    return this.db.collection(`${this.collection}`).doc<T>(id).valueChanges();
   }
 
   delete(id: any): Observable<void> {

@@ -1,16 +1,11 @@
-import { base } from "./base.models";
 
 export interface user {
-    id : string,
+    uid: string  | undefined ,
     nombre : string,
-    rol: rol,
-    password : string,
-    correo : string,
-    imagen: string,
-    emailVerified: boolean;
+    rol: string,
+    password : string ,
+    correo : string ,
+    // imagen: null,
+    userName: string 
 }
 
-export interface rol {
-    admin : string,
-    subscriber : string
-}

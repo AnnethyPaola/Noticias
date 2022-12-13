@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { EditUserComponent } from './edit-user.component';
 
 const routes: Routes = [
-  {path:'edit-user', component: EditUserComponent},
+  {path:'edit-user/:id', component: EditUserComponent},
   {path: '', redirectTo: '', pathMatch: 'full'},
 
 ];

@@ -1,0 +1,97 @@
+<div class="container p-3">
+    <h1 class="titulo" style="width:100%" id="detallesNews">{{news?.titulo}}</h1>
+    <h2 style=" font-size:20px;font-weight:900"> Autor:  <span style=" color:red;">{{news?.autor}} </span> </h2>
+    <h4 style="color:gray; font-size:15px">Fecha publicación <span style="font-weight:900">{{news?.fecha }}</span> </h4>
+    <p style="text-align:justify;font-size:12px; font-weight: 900;"> Categoría: <span style="color:Red">{{news?.categoria}}</span> </p>
+    <div class="foto">
+        <img [src]="news?.image" [alt]="news?.titulo" style="width:100%">
+    </div>
+    <br>
+    <div class="descripcion">
+        <p style="text-align:justify; font-size:20px">{{news?.description}}</p>
+    </div>
+    <div class="contenido">
+        <p style="text-align:justify;font-size:20px"> {{news?.body}}</p>
+    </div>
+   
+    <br>
+    <!-- <div class="comentarios">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2 style="font-weight:900">Comentarios</h2>
+                </div>
+                <div class="col">
+                    <button (click)="openVerticallyCentered(content)" id="btnn"
+                        class="position-absolute top-15 end-0 m-2" *ngIf="login == false">Agregar
+                        Noticia</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card" *ngFor="let n of comentarios">
+            <div class="card-header">
+                {{n.TituloComentario}}
+            </div>
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <p>{{n.BodyComentario}}</p>
+                    <footer class="blockquote-footer"> aaaaa</footer>
+                </blockquote>
+            </div>
+        </div>
+
+        <div class="modal">
+            <ng-template #content let-modal>
+                <div class="modal-header">
+                    <h4 class="modal-title" style="font-weight:900">Agregar <span style="color:red;">Comentario</span>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="form" (ngSubmit)="CreateComentario()">
+                        <div class="form-group">
+                            <label>Titulo</label>
+                            <input type="text" class="form-control" formControlName="titulo">
+
+                        </div>
+                        <label id="hidden">Titulo</label>
+                        <input type="text" formControlName="noticia" id="hidden">
+                        <div class="form-group">
+                            <label>Comentario</label>
+                            <textarea class="form-control" formControlName="body"></textarea>
+                        </div>
+                        <br>
+                        <button class="btn" type="subtmit"> Agregar comentario</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btnn" (click)="modal.close('Close click')">Cerrar</button>
+                </div>
+            </ng-template>
+        </div>
+    </div> -->
+
+
+    <div class="noticias">
+        <h1 style="font-weight:900;font-family: 'Bebas Neue', cursive;">Noticias recientes</h1>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col" *ngFor="let n of NoticiasRecientes">
+                <div class="card h-100" >
+                    <img [src]="n.image" alt=""class="card-img-top"
+                        alt="{{n.titulo}}"  style="height:200px;"/>
+                    <div class="card-body">
+                        <h5 class="card-title" style="text-align:justify; font-size:15px; font-weight: 900;">{{n.titulo}}</h5>
+                        <p class="card-text" style="text-align:justify; font-size:13px;">
+                            {{n.description.substr(0,100)}}...
+                        </p>
+                        <button  class="btn btn-light-blue btn-md" (click)="detalles(n.id)">Leer mas...</button>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Fecha publicación: {{n.fecha}}</small>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

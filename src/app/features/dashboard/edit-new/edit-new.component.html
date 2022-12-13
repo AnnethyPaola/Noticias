@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container p-3">
     <div class="title-page">
       <h2>Editar noticia </h2>
    </div>
     <div class="form">
-      <form [formGroup]="form" (ngSubmit)="submit()">
+      <form [formGroup]="form" (ngSubmit)="submit(form.value)" >
         <div class="row">
           <div class="col">
             <div class="form-group">
@@ -56,9 +56,14 @@
             <div class="form-group">
               <label>Imagen</label>
               <input class="form-control" type="file" id="formFileMultiple" 
+              (change)="handleImage($event)" 
               >
             </div>
           </div>
+
+           <!-- <div *ngIf="post$ | async as post; ">
+            <img [src]="news.image" alt="">
+           </div> -->
         </div>
         <br>
         <button type="submit" class="btn btn-danger btn-lg btn-block" >Guadar</button>

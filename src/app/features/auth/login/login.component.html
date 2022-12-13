@@ -10,25 +10,21 @@
             <form class="w-75" action="#">
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Correo</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Correo"
-                        required #userName>
+                    <input type="email" class="form-control"  placeholder="Correo"
+                        required  #Usercorreo>
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput2" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleFormControlInput2" placeholder="password"
-                        required  #userPassword>
+                    <input type="password" class="form-control"  placeholder="password"
+                        required  #Userpassword>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                       
-                            <label class="" for="flexCheckDefault" routerLink="/register" style="font-weight:800">
-                                Registrarme
-                            </label>
                       
                     </div>
                 </div>
-                <button type="button" class="btn btn-custom btn-lg btn-block mt-3" (click)="authService.SignIn(userName.value, userPassword.value)">Ingresar</button>
-                <button type="button" class="btn btn-custom btn-lg btn-block mt-3" (click)="authService.GoogleAuth()">Ingresar con google</button>
+                <button type="button" class="btn btn-custom btn-lg btn-block mt-3" (click)="login(Usercorreo.value, Userpassword.value)">Ingresar</button>
+                <!-- <button type="button" class="btn btn-custom btn-lg btn-block mt-3" (click)="authService.GoogleAuth()">Ingresar con google</button> -->
 
             </form>
         </div>

@@ -19,22 +19,19 @@ import { AuthService } from './core/services/Auth/auth-service.service';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { CommonModule } from '@angular/common';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
 @NgModule({
   declarations: [
-    AddUserComponent,
-    EditUserComponent,
-    AddCategoriaComponent,
-    EditCategoriaComponent,
-    
   ],
   imports: [
     AppRoutingModule,
     CoreModule,
     HttpClientModule,
-    ReactiveFormsModule ,
+    ReactiveFormsModule,
     FormsModule,
     FeaturesModule,
     SharedModule,
@@ -43,8 +40,8 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireModule,
-    AngularFireStorageModule
-  
+    AngularFireStorageModule,
+    CommonModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

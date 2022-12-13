@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container p-3">
   <div class="title-page">
     <h2>Agregar noticia</h2>
  </div>
   <div class="form">
-    <form [formGroup]="form" (ngSubmit)="CreateNews()">
+    <form [formGroup]="form" (ngSubmit)="CreateNews(form.value)">
       <div class="row">
         <div class="col">
           <div class="form-group">
@@ -48,7 +48,7 @@
           <div class="form-group">
             <label>Imagen</label>
             <input class="form-control" type="date"  id="formFileMultiple" 
-            formControlName="fecha">
+            formControlName="fecha"> 
           </div>
         </div>
       
@@ -56,7 +56,7 @@
           <div class="form-group">
             <label>Imagen</label>
             <input class="form-control" type="file" id="formFileMultiple" multiple
-            (click)="newImageUpload($event)">
+             [value]="" (change)="handleImage($event)">
           </div>
         </div>
       </div>

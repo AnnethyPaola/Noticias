@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MenuComponent } from 'src/app/shared/menu/menu.component';
+import { DetailsNewComponent } from '../dashboard/details-new/details-new.component';
+import { DetailsNewsPageComponent } from './details-news-page/details-news-page.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
@@ -68,6 +70,11 @@ const routes: Routes = [
     path: 'social',
     loadChildren: () =>
       import('./social/social.module').then((m) => m.SocialModule)
+  },
+
+  {
+    path: 'detalles-news/:id',
+    component : DetailsNewsPageComponent
   }
 
 

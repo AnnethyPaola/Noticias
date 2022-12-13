@@ -1,20 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PoliticaRoutingModule } from './politica.routing.module';
-import { PoliticaComponent } from './politica.component';
 import { NgbCarouselConfig, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { DetailsNewsPageComponent } from './details-news-page.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    PoliticaComponent
+   
   ],
   exports: [],
   imports: [
     CommonModule,
-    PoliticaRoutingModule,
-    NgbCarouselModule
+    NgbCarouselModule,
+    ReactiveFormsModule ,
+    FormsModule,
+    
   ],
   providers: [NgbCarouselConfig]
-
 })
-export class PoliticaModule { }
+export class DetailsNewsPageModule { }

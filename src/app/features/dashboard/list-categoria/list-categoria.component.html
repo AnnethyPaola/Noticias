@@ -1,26 +1,19 @@
-<div class="container">
+<div class="container p-3">
     <div class="title-page">
         <h2>Lista de categorias </h2>
     </div>
-    <br>
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
-                type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Categorias</button>
-        </li>
-        <li class=" align-self-end">
-            <p type="button" class="btn mr-sm-2" routerLink="/dashboard/addCategoria/add-categoria">
-                Agregar categoria <i class="fa-solid fa-plus-minus"></i>
-            </p>
-    
-        </li>
-    </ul>
+    <div class="buscador" style="font-weight:900">
+        Buscar
+        <input type="text" class="input">
+        <button class="button">buscar <i class="fa-solid fa-magnifying-glass"></i></button>
+        <button class="button" routerLink="/dashboard/addCategoria/add-categoria">Agregar categoria <i class="fa-solid fa-plus"></i></button>
+      </div>
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
             tabindex="0">
             <table class="table table-striped">
                 <thead>
-                    <tr>
+                    <tr class="tr">
                         <th scope="col">#</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Descripcion</th>
@@ -37,7 +30,7 @@
                             <i class="fa-solid fa-pen-to-square"
                                 routerLink="/dashboard/editCategoria/edit-categoria/{{category.id}}"
                                 style="color:green"></i>
-                            <i class="fa-solid fa-trash" style="color:red"></i>
+                            <i class="fa-solid fa-trash" style="color:red"  (click)="deleteNews(category.id)"></i>
                         </td>
                         <td></td>
                     </tr>

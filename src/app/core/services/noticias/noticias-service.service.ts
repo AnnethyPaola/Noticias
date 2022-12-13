@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 
-import { news } from '../../models/news.models'
+import { FileI, news } from '../../models/news.models'
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { BaseService } from '../base/base-service.service';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
-import { finalize } from 'rxjs';
+import { finalize, Observable } from 'rxjs';
 
 
 @Injectable({
@@ -12,30 +12,64 @@ import { finalize } from 'rxjs';
 })
 export class NoticiasService extends BaseService<news>{
 
+  private filePath!: string;
+  private downloadURL!: Observable<string>;
+  contador = 0;
+
+
   constructor(db: AngularFirestore, public storage: AngularFireStorage) {
     super('news', db);
   }
 
-  uploadFile(file: any, path: string, nombre: string): Promise<string> {
-    return new Promise(resolve => {
-      // const file = event.target?.files[0];
-      const filePath = path + '/' + nombre;
-      const ref = this.storage.ref(filePath);
-      const task = ref.put(file);
-     
+  public uploadFile(news: news, image: any): void {
 
-      task.snapshotChanges().pipe(
+    const metadata = {
+      contentType: 'image/jpg',
+    };
+
+    this.filePath = `images/${image.name}` + this.contador++;
+    const fileRef = this.storage.ref(this.filePath);
+    const task = this.storage.upload(this.filePath, image);
+
+    task.snapshotChanges()
+      .pipe(
         finalize(() => {
-          ref.getDownloadURL().subscribe(res => {
-            const downloadURL = res;
-            resolve(downloadURL);
-            return;
+          fileRef.getDownloadURL().subscribe(urlImage => {
+            this.downloadURL = urlImage;
+            this.SaveNotice(news)
+            console.log(this.downloadURL)
           });
         })
-      )
-        .subscribe()
+      ).subscribe();
 
-    })
+  }
 
+  private SaveNotice(news: news) {
+    const newsObj = {
+      titulo: news.titulo,
+      description: news.description,
+      body: news.body,
+      categoria: news.categoria,
+      autor: news.autor,
+      fecha: news.fecha,
+      image: this.downloadURL
+    }
+    if (news.id) {
+      return this.db.doc(news.id).update(newsObj);
+    } else {
+      return this.create(newsObj);
+    }
+  }
+
+  public preAddAndUpdatePost(news: news, image: any): void {
+    this.uploadFile(news, image);
+  }
+
+  public editById(news: news, newImage?: FileI)  {
+    if (newImage) {
+      this.uploadFile(news, newImage);
+    } else {
+       this.db.doc(news.id).update(news);
+    }
   }
 }

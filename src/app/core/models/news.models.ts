@@ -6,6 +6,13 @@ export interface news extends base {
     body : string,
     categoria: string,
     autor: string,
-    fecha: Date,
+    fecha: string,
     image : string
 }
+
+export interface FileI {
+    name: string;
+    imageFile: File;
+    size: string;
+    type: string;
+  }

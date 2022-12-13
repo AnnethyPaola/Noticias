@@ -7,26 +7,26 @@
             <span class="rojo">D</span>
         </div>
         <div class="col p-0 bg-custom d-flex justify-content-center align-items-center flex-column w-100">
-            <form class="w-75" action="#">
+            <form class="w-75" >
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Correo</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Correo"
-                        required #userName>
+                    <label  class="form-label">Correo</label>
+                    <input type="email" class="form-control"  placeholder=""
+                        required  [(ngModel)]="user.correo" name="correo" #UserCorreo>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlInput2" class="form-label">Password</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="password"
-                        required  #userPassword >
+                    <label  class="form-label">Password</label>
+                    <input type="text" class="form-control"  placeholder=""
+                        required   [(ngModel)]="user.password" name="password" #Userpassword>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Nombre de usuario</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Correo"
-                        required #userUsername>
+                    <label  class="form-label">Nombre de usuario</label>
+                    <input type="email" class="form-control"  placeholder=""
+                        required  [(ngModel)]="user.userName" name="userName" #UserName>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlInput2" class="form-label">Nombre Completo</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="password"
-                        required  #userName>
+                    <label  class="form-label">Nombre Completo</label>
+                    <input type="text" class="form-control" placeholder=""
+                        required  [(ngModel)]="user.nombre" name="nombre" #UserName>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
@@ -37,8 +37,8 @@
                       
                     </div>
                 </div>
-                <button type="button" class="btn btn-custom btn-lg btn-block mt-3" (click)="authService.SignUp(userName.value, userPassword.value)">Ingresar</button>
-                <button type="button" class="btn btn-custom btn-lg btn-block mt-3" (click)="authService.GoogleAuth()">Ingresar con google</button>
+                <button type="button" class="btn btn-custom btn-lg btn-block mt-3" (click)="Register(UserCorreo.value, Userpassword.value)">Ingresar</button>
+                <!-- <button type="button" class="btn btn-custom btn-lg btn-block mt-3" (click)="authService.GoogleAuth()">Ingresar con google</button> -->
 
             </form>
         </div>
