@@ -19,7 +19,7 @@
 
 <h1 class="p-3" style="font-weight:900">Tecnologia</h1>
 <div class="flexbacan">
-    <div class="card h-100" style="width:350px;height:250px;margin-bottom: 30px;" *ngFor="let n of Tecnologia">
+    <div class="card h-100" style="width:350px;height:250px;margin-bottom: 30px;" *ngFor="let n of Tecnologia | slice: (page-1) * pageSize : page * pageSize">
       <div class="view overlay">
         <img class="card-img-top" [src]="n.image" [alt]="n.titulo" style="width:350px;height:250px;">
         <a href="#!">
@@ -37,3 +37,4 @@
       </div>
     </div>
   </div>
+  <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="Tecnologia.length"></ngb-pagination>

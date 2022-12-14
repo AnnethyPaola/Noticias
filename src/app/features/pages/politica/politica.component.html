@@ -18,7 +18,7 @@
 
     <h1 class="p-3" style="font-weight:900">Política</h1>
     <div class="flexbacan">
-        <div class="card h-100" style="width:350px;height:250px;margin-bottom: 30px;" *ngFor="let n of Politica">
+        <div class="card h-100" style="width:350px;height:250px;margin-bottom: 30px;" *ngFor="let n of Politica | slice: (page-1) * pageSize : page * pageSize">
             <div class="view overlay">
                 <img class="card-img-top" [src]="n.image" [alt]="n.titulo" style="width:350px;height:250px;">
                 <a href="#!">
@@ -35,4 +35,6 @@
                 <button type="button" class="btn "  routerLink="/pages/detalles-news/{{n.id}}">Leer mas...</button>
             </div>
         </div>
+        <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="Politica.length"></ngb-pagination>
     </div>
+    

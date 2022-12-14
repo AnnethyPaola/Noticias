@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListCategoriaRoutingModule } from './list.categoria.routing.module';
 import { ListCategoriaComponent } from './list-categoria.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { ListCategoriaComponent } from './list-categoria.component';
   exports: [],
   imports: [
     CommonModule,  
-    ListCategoriaRoutingModule
+    ListCategoriaRoutingModule,
+    NgbModule
   ]
 })
 export class ListCategoriaModule { }

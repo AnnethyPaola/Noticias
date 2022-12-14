@@ -17,7 +17,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Nombre de usuario</th>
                         <th scope="col">Correo Electronico</th>
-                        <th scope="col">Rol</th>
+                        <th scope="col">Nombre completo</th>
                         <th scope="col">Acciones</th>
                         <th></th>
                     </tr>
@@ -27,7 +27,7 @@
                         <th scope="row">{{indice + 1}}</th>
                         <td>{{user.userName}}</td>
                         <td>{{user.correo}}</td>
-                        <td>{{user.rol}}</td>
+                        <td>{{user.nombre}}</td>
                         <td>
                             <i class="fa-solid fa-pen-to-square"
                                 routerLink="/dashboard/editUser/edit-user/{{user.uid}}"

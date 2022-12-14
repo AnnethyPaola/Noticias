@@ -10,7 +10,11 @@ import Swal from 'sweetalert2';
 })
 export class ListCategoriaComponent implements OnInit {
 
-  categoria?: categoria[];
+  public categoria: Array<categoria> = [];
+ 
+  public page = 5;
+  public pageSize = 5;
+
 
   constructor(
     private categoriaService: GategoriaService,

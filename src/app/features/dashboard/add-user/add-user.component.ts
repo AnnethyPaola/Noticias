@@ -19,7 +19,6 @@ export class AddUserComponent implements OnInit {
   user: user = {
     uid: '',
     nombre: '',
-    rol: '',
     password: '',
     correo: '',
     userName: ''

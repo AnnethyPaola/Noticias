@@ -17,6 +17,8 @@ export class EntretenimientoComponent implements OnInit {
   Entretenimiento: news[] = [];
   contador = [0, 0, 0, 0, 0, 0];
   CarroselEntretenimiento: news[] = []
+  public page = 12;
+  public pageSize = 9;
 
 
   ngOnInit(): void {

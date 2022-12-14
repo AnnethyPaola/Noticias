@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SocialRoutingModule } from './social.routing.module';
 import { SocialComponent } from './social.component';
-import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,8 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     CommonModule,
     SocialRoutingModule,
-    NgbCarouselModule
+    NgbCarouselModule,
+    NgbModule
   ]
 })
 export class SocialModule { }

@@ -29,6 +29,8 @@ export class DeportesComponent implements OnInit {
   Deportes: news[] = [];
   contador = [0, 0, 0, 0, 0, 0];
   CarroselNewsDeportes: news[] = []
+  public page = 12;
+  public pageSize = 9;
 
 
   public getDeportes() {

@@ -17,6 +17,8 @@ export class TecnologiaComponent implements OnInit {
   Tecnologia: news[] = [];
   contador = [0, 0, 0, 0, 0, 0];
   CarroselTecnologia: news[] = []
+  public page = 12;
+  public pageSize = 9;
 
   ngOnInit(): void {
     this.getTecnologia();

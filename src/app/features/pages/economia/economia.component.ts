@@ -16,6 +16,8 @@ export class EconomiaComponent implements OnInit {
   Economia: news[] = [];
   contador = [0, 0, 0, 0, 0, 0];
   CarroselEconomia: news[] = []
+  public page = 12;
+  public pageSize = 9;
 
   ngOnInit(): void {
     this.getTecnologia();

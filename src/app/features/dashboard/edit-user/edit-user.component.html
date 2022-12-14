@@ -3,21 +3,21 @@
         <h2>Editar Usuario</h2>
     </div>
         <div class="form">
-          <form action="" class="p-3" >
+          <form [formGroup]="form" class="p-3" (ngSubmit)="submit(form.value)">
       
             <div class="row">
               <div class="col p-3">
                 <div class="form-group">
                   <label>Nombre</label>
                   <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Titulo "
-                    formControlName="titulo">
+                    formControlName="nombre">
                 </div>
               </div>
               <div class="col p-3">
                 <div class="form-group">
                   <label>Nombre de usuario</label>
                   <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Autor"
-                    formControlName="autor">
+                    formControlName="userName">
                 </div>
               </div>
             </div>
@@ -25,18 +25,9 @@
             <div class="row">
               <div class="col p-3">
                 <div class="form-group">
-                  <label>Rol</label>
-                  <select name="" id="" class="form-select">
-                    <option value="Admin">Admin</option>
-                    <option value="Estandar">Estandar</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col p-3">
-                <div class="form-group">
                   <label>Password</label>
                   <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Autor"
-                  formControlName="autor">
+                  formControlName="password" readonly>
                 </div>
               </div>
             </div>
@@ -46,7 +37,7 @@
                   <div class="form-group">
                     <label>Correo</label>
                     <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Autor"
-                    formControlName="autor">
+                    formControlName="correo">
                   </div>
                 </div>
               </div>

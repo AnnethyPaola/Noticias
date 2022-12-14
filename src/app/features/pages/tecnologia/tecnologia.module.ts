@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TecnologiaRoutingModule } from './tecnologia.routing.module';
 import { TecnologiaComponent } from './tecnologia.component';
-import { NgbCarouselConfig, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselConfig, NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -13,7 +13,8 @@ import { NgbCarouselConfig, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap
   imports: [
     CommonModule,  
     TecnologiaRoutingModule,
-    NgbCarouselModule
+    NgbCarouselModule,
+    NgbModule
   ],
   providers: [NgbCarouselConfig]
 })

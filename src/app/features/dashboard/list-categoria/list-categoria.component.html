@@ -22,8 +22,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let category of categoria; let indice = index">
-                        <th scope="row">{{indice + 1}}</th>
+                    <tr *ngFor="let category of categoria | slice: (page-1) * pageSize : page * pageSize">
+                        <th scope="row">#</th>
                         <td>{{category.nombre}}</td>
                         <td>{{category.description}}</td>
                         <td>
@@ -36,6 +36,8 @@
                     </tr>
                 </tbody>
             </table>
+            <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="categoria.length"></ngb-pagination>
+
         </div>
       
     </div>

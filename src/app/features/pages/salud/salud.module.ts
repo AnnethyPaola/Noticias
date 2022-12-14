@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SaludRoutingModule } from './salud.routing.module';
 import { SaludComponent } from './salud.component';
-import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,8 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     CommonModule,  
     SaludRoutingModule,
-    NgbCarouselModule
+    NgbCarouselModule,
+    NgbModule
   ]
 })
 export class SaludModule { }

@@ -130,7 +130,6 @@ export class DetailsNewsPageComponent implements OnInit {
     const id = uid;
     this.userService.getById<user>(id).subscribe(data => {
       if (data) {
-        this.rol = data.rol = "Admin"
         this.user = data;
       }
     })

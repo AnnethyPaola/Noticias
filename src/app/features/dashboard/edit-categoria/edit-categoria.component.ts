@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { categoria } from 'src/app/core/models/categoria.models';
 import { GategoriaService } from 'src/app/core/services/categoria/gategoria-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-categoria',
@@ -16,7 +17,8 @@ export class EditCategoriaComponent implements OnInit {
 
   constructor(
     private activeRoute: ActivatedRoute,
-    private categoryService: GategoriaService
+    private categoryService: GategoriaService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -54,7 +56,14 @@ export class EditCategoriaComponent implements OnInit {
       } as unknown as categoria;
       categoria.id = id as any
       this.EditCategoria(categoria);
-      console.log(categoria);
+      Swal.fire({
+        title: 'Bien!',
+        text: 'Noticia editada correctamente',
+        icon: 'success',
+        confirmButtonText: 'Ok'
+      })
+      this.router.navigate(['/dashboard/listCategoria/list-categoria'])
     }
+    
 
 }

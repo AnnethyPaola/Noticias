@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { news } from 'src/app/core/models/news.models';
@@ -16,36 +16,17 @@ export class DetailsNewComponent implements OnInit {
   ) { }
 
   NewsData!: any;
+  @Input() news?: news;
 
   ngOnInit(): void {
-    this.ListNews();
+   this.getNewsDetails();
   }
 
- 
-    form = new FormGroup({
-    titulo: new FormControl('', [Validators.required]),
-    description: new FormControl('', [Validators.required]),
-    body: new FormControl('', [Validators.required]),
-    categoria: new FormControl('', [Validators.required]),
-    autor: new FormControl('', [Validators.required]),
-    fecha: new FormControl('', [Validators.required]),
-    imagen: new FormControl('', [Validators.required]),
+  getNewsDetails() {
+    const id = this.activeRoute.snapshot.paramMap.get('id');
+    this.newsService.getById<news>(id).subscribe(data => {
+      this.news = data;
     })
-
-
-ListNews(){
-  let id = this.activeRoute.snapshot.paramMap.get('id');
-  this.newsService.getById(id).subscribe(data => {
-    this.NewsData = data;
-    this.form.setValue({
-      titulo: this.NewsData.titulo,
-      description: this.NewsData.description,
-      body: this.NewsData.body,
-      categoria: this.NewsData.categoria,
-      autor: this.NewsData.autor,
-      fecha: this.NewsData.fecha,
-      imagen: this.NewsData.imagen,
-    })
-  })
-}
+  }
+   
 }

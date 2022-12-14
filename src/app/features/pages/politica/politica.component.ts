@@ -24,7 +24,10 @@ export class PoliticaComponent implements OnInit {
   news?: news[];
   Politica: news[] = [];
   contador = [0];
-  CarroselPolitica: news[] = []
+  CarroselPolitica: news[] = [];
+  public page = 12;
+  public pageSize = 9;
+
 
   ngOnInit(): void {
     this.getPolitica();

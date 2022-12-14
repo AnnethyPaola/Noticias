@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PoliticaRoutingModule } from './politica.routing.module';
 import { PoliticaComponent } from './politica.component';
-import { NgbCarouselConfig, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselConfig, NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgModule } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,8 @@ import { NgbCarouselConfig, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap
   imports: [
     CommonModule,
     PoliticaRoutingModule,
-    NgbCarouselModule
+    NgbCarouselModule,
+    NgbModule
   ],
   providers: [NgbCarouselConfig]
 

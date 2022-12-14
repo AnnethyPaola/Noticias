@@ -1,39 +1,41 @@
 <div class="container p-3">
     <h2 style="font-family: 'Bebas Neue', cursive;font-size:60px;">Noticias de ultimo minuto</h2>
-    <h4  style="color:gray;font-family: 'Bebas Neue', cursive;">Apartado: Entretenimiento</h4 >
-   <div class="carrusel" >
-       <ngb-carousel  >
-           <ng-template ngbSlide *ngFor="let n of CarroselEntretenimiento">
-               <div class="picsum-img-wrapper" >
-                   <img [src]="n.image" alt="Random first slide" style="width:100%; height:700px">
-               </div>
-               <div class="carousel-caption" >
-                   <h3 class="titulo-carrusel" style="font-weight: 900;">{{n.titulo}}</h3>
-                   <p class="titulo-carrusel">{{n.description}}</p>
-               </div>
-           </ng-template>
-       </ngb-carousel>
-   </div>
-
-
-<h1 class="p-3" style="font-weight:900">Entretenimiento</h1>
-<div class="flexbacan">
-    <div class="card h-100" style="width:350px;height:250px;margin-bottom: 30px;" *ngFor="let n of Entretenimiento">
-        <div class="view overlay">
-            <img class="card-img-top" [src]="n.image" [alt]="n.titulo" style="width:350px;height:250px;">
-            <a href="#!">
-                <div class="mask rgba-white-slight">
-
+    <h4 style="color:gray;font-family: 'Bebas Neue', cursive;">Apartado: Entretenimiento</h4>
+    <div class="carrusel">
+        <ngb-carousel>
+            <ng-template ngbSlide *ngFor="let n of CarroselEntretenimiento">
+                <div class="picsum-img-wrapper">
+                    <img [src]="n.image" alt="Random first slide" style="width:100%; height:700px">
                 </div>
-            </a>
-        </div>
-        <div class="card-body">
-            <h4 class="card-title" style="font-size:18px;text-align: justify; font-weight: 900;">
-                {{n.titulo.substr(0,50)}} ...</h4>
-            <h5 style="font-size:16px;">Autor : {{n.autor.substr(0,15)}}</h5>
-            <p class="card-text" style="font-size:12px;text-align: justify;">{{n.description.substr(0,200)}} ...</p>
-            <button type="button" class="btn "  routerLink="/pages/detalles-news/{{n.id}}">Leer mas...</button>
-        </div>
+                <div class="carousel-caption">
+                    <h3 class="titulo-carrusel" style="font-weight: 900;">{{n.titulo}}</h3>
+                    <p class="titulo-carrusel">{{n.description}}</p>
+                </div>
+            </ng-template>
+        </ngb-carousel>
     </div>
-</div>
-</div>
+
+
+    <h1 class="p-3" style="font-weight:900">Entretenimiento</h1>
+    <div class="flexbacan">
+        <div class="card h-100" style="width:350px;height:250px;margin-bottom: 30px;"
+            *ngFor="let n of Entretenimiento  | slice: (page-1) * pageSize : page * pageSize">
+            <div class="view overlay">
+                <img class="card-img-top" [src]="n.image" [alt]="n.titulo" style="width:350px;height:250px;">
+                <a href="#!">
+                    <div class="mask rgba-white-slight">
+
+                    </div>
+                </a>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title" style="font-size:18px;text-align: justify; font-weight: 900;">
+                    {{n.titulo.substr(0,50)}} ...</h4>
+                <h5 style="font-size:16px;">Autor : {{n.autor.substr(0,15)}}</h5>
+                <p class="card-text" style="font-size:12px;text-align: justify;">{{n.description.substr(0,200)}} ...</p>
+                <button type="button" class="btn " routerLink="/pages/detalles-news/{{n.id}}">Leer mas...</button>
+            </div>
+        </div>
+        <ngb-pagination [(page)]="page" [pageSize]="pageSize"
+            [collectionSize]="Entretenimiento.length"></ngb-pagination>
+    </div>

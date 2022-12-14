@@ -18,7 +18,7 @@ export class NewsComponent implements OnInit {
   CarroselNews: news[] = []
   contador= [0];
   public page = 12;
-  public pageSize = 12;
+  public pageSize = 18;
 
   ngOnInit(): void {
     this.getNews();

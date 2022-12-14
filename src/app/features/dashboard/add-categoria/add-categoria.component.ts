@@ -13,26 +13,26 @@ import { Router } from '@angular/router';
 export class AddCategoriaComponent implements OnInit {
 
   constructor(
-    private categoriaService : GategoriaService,
-    private router : Router
+    private categoriaService: GategoriaService,
+    private router: Router
   ) { }
 
-  public form : FormGroup = new FormGroup([]);
+  public form: FormGroup = new FormGroup([]);
 
 
   ngOnInit(): void {
     this.formCreate();
   }
 
-  private formCreate() : void{
+  private formCreate(): void {
     this.form = new FormGroup({
-    nombre:  new FormControl('', [Validators.required]),
-    description: new FormControl('', [Validators.required]),
+      nombre: new FormControl('', [Validators.required]),
+      description: new FormControl('', [Validators.required]),
     })
   }
 
-  public CreateCategorias():void{
-    const categoria : categoria = {
+  public CreateCategorias(): void {
+    const categoria: categoria = {
       ...this.form.value
     } as categoria;
     Swal.fire({
@@ -43,9 +43,7 @@ export class AddCategoriaComponent implements OnInit {
       timer: 1500
     })
     this.categoriaService.create(categoria).subscribe(() => {
-      console.log(categoria)
-    },(data) => {
-      console.log(data);
+    }, (data) => {
     })
     this.router.navigate(['/dashboard/listCategoria/list-categoria'])
   }

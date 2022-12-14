@@ -29,12 +29,10 @@ export class MenuComponent implements OnInit {
 
     this.auth.stateUser().subscribe(res => {
       if (res) {
-
-        this.login = false;
+        this.login = true;
         this.getDatosUser(res.uid)
       } else {
-
-        this.login = true;
+        this.login = false;
       }
     })
   }
@@ -54,14 +52,13 @@ export class MenuComponent implements OnInit {
     const id = uid;
     this.userService.getById<user>(id).subscribe(data => {
       if (data) {
-        this.rol = data.rol = "Estandar"
+        // this.rol = data.rol = "Estandar"
         this.user = data;
       }
     })
   }
 
-  singtOut() {
-
+   singtOut() {
     Swal.fire({
       title: 'Esta seguro de cerrar sesion?',
       text: "una vez cerrada la sesion se tendra que volver a loguear para disfrutar de ciertos privilegios...",

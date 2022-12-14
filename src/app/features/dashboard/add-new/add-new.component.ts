@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { finalize, Observable } from 'rxjs';
 import { categoria } from 'src/app/core/models/categoria.models';
 import { news } from 'src/app/core/models/news.models';
@@ -18,7 +19,7 @@ export class AddNewComponent implements OnInit {
   constructor(
     public newsService: NoticiasService,
     private categoryService: GategoriaService,
-    private storage: AngularFireStorage
+    private router: Router
   ) { }
 
   public form: FormGroup = new FormGroup([]);
@@ -48,7 +49,7 @@ export class AddNewComponent implements OnInit {
       description: new FormControl('', [Validators.required]),
       body: new FormControl('', [Validators.required]),
       categoria: new FormControl('', [Validators.required]),
-      autor: new FormControl('sin autor', [Validators.required]),
+      autor: new FormControl('', [Validators.required]),
       fecha: new FormControl('', [Validators.required]),
       imagen: new FormControl('', [Validators.required]),
     })
@@ -64,8 +65,8 @@ export class AddNewComponent implements OnInit {
       showConfirmButton: false,
       timer: 1500
     })
-
     this.form.reset();
+    this.router.navigate(['/dashboard/listNews/list-news'])
   }
 
   handleImage(event: any): void {

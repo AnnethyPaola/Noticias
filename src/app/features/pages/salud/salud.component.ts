@@ -16,7 +16,10 @@ export class SaludComponent implements OnInit {
   news?: news[];
   Salud: news[] = [];
   contador = [0, 0, 0, 0, 0, 0];
-  CarroselSalud: news[] = []
+  CarroselSalud: news[] = [];
+  public page = 12;
+  public pageSize = 9;
+
 
   ngOnInit(): void {
     this.getSalud();

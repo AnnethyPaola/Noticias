@@ -5,10 +5,10 @@
       Noticias
       <span class="azul">R</span>
       <span class="rojo">D</span>
-      <span class="position-absolute top-15 end-0 m-2" id="button" *ngIf="login" routerLink="/login">Iniciar sesión <i
+      <span class="position-absolute top-15 end-0 m-2" id="button" *ngIf="login == false" routerLink="/login">Iniciar sesión <i
           class="fa-solid fa-right-to-bracket"></i> </span>
       <button class="position-absolute top-0 end-0 m-4">
-        <i class="fa-solid fa-user" *ngIf="rol == 'Estandar'" (click)="openVerticallyCentered(content)">
+        <i class="fa-solid fa-user" *ngIf="login == true" (click)="openVerticallyCentered(content)">
           {{user?.userName}}
         </i>
       </button>

@@ -15,7 +15,9 @@ export class SocialComponent implements OnInit {
   news?: news[];
   Social: news[] = [];
   contador = [0, 0, 0, 0, 0, 0];
-  CarroselRedesSociales: news[] = []
+  CarroselRedesSociales: news[] = [];
+  public page = 12;
+  public pageSize = 9;
 
   ngOnInit(): void {
     this.getSocial();
