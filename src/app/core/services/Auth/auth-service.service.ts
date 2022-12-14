@@ -38,9 +38,9 @@ export class AuthService {
     return this.autFirebase.authState
   }
 
-  get isLoggedIn(): boolean {
+  isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
-    return user !== 'null' ? true : false;
+    return user !== 'token' ? false : true;
   }
 }
 

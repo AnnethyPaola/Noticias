@@ -17,8 +17,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // news!: news[];
-
   credenciales = {
     correo: null,
     password: null
@@ -43,6 +41,7 @@ export class LoginComponent implements OnInit {
         timer: 1500
       });
       this.router.navigate(['/pages/home']);
+    
     }
   }
 
